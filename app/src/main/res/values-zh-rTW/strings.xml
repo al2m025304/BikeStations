@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">自行車站</string>
+    <string name="total_parking_space">總停車格：%s</string>
+    <string name="current_number_of_bikes">目前車輛數量：%s</string>
+</resources>

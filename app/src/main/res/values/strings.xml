@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Bike Stations</string>
+    <string name="total_parking_space">Total parking space: %s</string>
+    <string name="current_number_of_bikes">Current number of bikes: %s</string>
+</resources>
