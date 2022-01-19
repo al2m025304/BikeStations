@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">自行車站</string>
-    <string name="total_parking_space">總停車格：%s</string>
-    <string name="current_number_of_bikes">目前車輛數量：%s</string>
+    <string name="total_parking_space_s">總停車格：%s</string>
+    <string name="current_number_of_bikes_s">目前車輛數量：%s</string>
+    <string name="station_detail">車站資訊</string>
+    <string name="chinese_name_of_the_station">車站名稱：</string>
+    <string name="area">區域：</string>
+    <string name="update_time">更新時間：</string>
+    <string name="current_number_of_bikes">目前車輛數量：</string>
+    <string name="total_parking_space">總停車格：</string>
 </resources>

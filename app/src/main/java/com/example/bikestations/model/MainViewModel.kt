@@ -1,4 +1,4 @@
-package com.example.bikestations.ui.main
+package com.example.bikestations.model
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,6 +13,18 @@ class MainViewModel : ViewModel() {
     private val _stations = MutableLiveData<List<BikeStation>>()
     val stations: LiveData<List<BikeStation>> = _stations
 
+    private val _name = MutableLiveData<String>()
+    val name: LiveData<String> = _name
+
+    private val _total = MutableLiveData<Int>()
+    val total: LiveData<Int> = _total
+
+    private val _bikes = MutableLiveData<Int>()
+    val bikes: LiveData<Int> = _bikes
+
+    private val _area = MutableLiveData<String>()
+    val area: LiveData<String> = _area
+
     init {
         getBikeStations()
     }
@@ -25,5 +37,12 @@ class MainViewModel : ViewModel() {
                 _stations.value = listOf()
             }
         }
+    }
+
+    fun onBikeStationClicked(station: BikeStation) {
+        _name.value = station.sna
+        _total.value = station.tot
+        _bikes.value = station.sbi
+        _area.value = station.sarea
     }
 }

@@ -1,4 +1,4 @@
-package com.example.bikestations.ui.main
+package com.example.bikestations
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,14 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bikestations.databinding.ListItemBinding
 import com.example.bikestations.network.BikeStation
 
-class StationListAdapter :
+class StationListAdapter(private val clickListener: BikeStationListener) :
     ListAdapter<BikeStation, StationListAdapter.BikeStationsViewHolder>(DiffCallback) {
 
     class BikeStationsViewHolder(
         private var binding: ListItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(bikeStation: BikeStation) {
+        fun bind(bikeStation: BikeStation, clickListener: BikeStationListener) {
             binding.station = bikeStation
+            binding.clickListener = clickListener
             // Force the data binding to execute immediately,
             // which allows the RecyclerView to make the correct view size measurements
             binding.executePendingBindings()
@@ -45,6 +46,10 @@ class StationListAdapter :
 
     override fun onBindViewHolder(holder: BikeStationsViewHolder, position: Int) {
         val bikeStation = getItem(position)
-        holder.bind(bikeStation)
+        holder.bind(bikeStation, clickListener)
     }
+}
+
+class BikeStationListener(val clickListener: (station: BikeStation) -> Unit) {
+    fun onClick(station: BikeStation) = clickListener(station)
 }

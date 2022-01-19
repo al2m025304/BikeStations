@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Bike Stations</string>
-    <string name="total_parking_space">Total parking space: %s</string>
-    <string name="current_number_of_bikes">Current number of bikes: %s</string>
+    <string name="total_parking_space_s">Total parking space: %s</string>
+    <string name="current_number_of_bikes_s">Current number of bikes: %s</string>
+    <string name="station_detail">Station Detail</string>
+    <string name="chinese_name_of_the_station">Chinese name of the station</string>
+    <string name="area">Area</string>
+    <string name="update_time">Update time</string>
+    <string name="current_number_of_bikes">Current number of bikes</string>
+    <string name="total_parking_space">Total parking space</string>
 </resources>

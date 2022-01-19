@@ -1,4 +1,4 @@
-package com.example.bikestations.ui.main
+package com.example.bikestations
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
