@@ -10,88 +10,109 @@
             type="com.example.bikestations.model.MainViewModel" />
     </data>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-            <TextView
-                android:id="@+id/chinese_name"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/chinese_name_of_the_station"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="@color/material_on_background_emphasis_medium"
-                tools:text="車站名稱：" />
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@{viewModel.name}"
-                android:textColor="@color/design_default_color_primary"
-                android:textSize="24sp"
-                tools:text="YouBike2.0_捷運科技大樓站" />
+                <TextView
+                    android:id="@+id/chinese_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chinese_name_of_the_station"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="@color/material_on_background_emphasis_medium"
+                    tools:text="車站名稱：" />
 
-            <TextView
-                android:id="@+id/current_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/current_number_of_bikes"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="@color/material_on_background_emphasis_medium"
-                tools:text="目前車輛數量：" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:text="@{viewModel.name}"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="24sp"
+                    tools:text="YouBike2.0_捷運科技大樓站" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@{viewModel.bikes.toString()}"
-                android:textColor="@color/design_default_color_primary"
-                android:textSize="34sp"
-                tools:text="4" />
+                <TextView
+                    android:id="@+id/current_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/current_number_of_bikes"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="@color/material_on_background_emphasis_medium"
+                    tools:text="目前車輛數量：" />
 
-            <TextView
-                android:id="@+id/total_space"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/total_parking_space"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="@color/material_on_background_emphasis_medium"
-                tools:text="總停車格：" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:text="@{viewModel.bikes.toString()}"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="34sp"
+                    tools:text="4" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@{viewModel.total.toString()}"
-                android:textColor="@color/design_default_color_primary"
-                android:textSize="34sp"
-                tools:text="28" />
+                <TextView
+                    android:id="@+id/total_space"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/total_parking_space"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="@color/material_on_background_emphasis_medium"
+                    tools:text="總停車格：" />
 
-            <TextView
-                android:id="@+id/station_bikes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/area"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="@color/material_on_background_emphasis_medium"
-                tools:text="區域：" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:text="@{viewModel.total.toString()}"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="34sp"
+                    tools:text="28" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@{viewModel.area}"
-                android:textColor="@color/design_default_color_primary"
-                android:textSize="24sp"
-                tools:text="大安區" />
+                <TextView
+                    android:id="@+id/station_bikes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/area"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="@color/material_on_background_emphasis_medium"
+                    tools:text="區域：" />
 
-        </LinearLayout>
-    </ScrollView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:text="@{viewModel.area}"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="24sp"
+                    tools:text="大安區" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 </layout>

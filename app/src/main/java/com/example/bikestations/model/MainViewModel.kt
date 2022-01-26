@@ -25,6 +25,12 @@ class MainViewModel : ViewModel() {
     private val _area = MutableLiveData<String>()
     val area: LiveData<String> = _area
 
+    private val _latitude = MutableLiveData<Double>()
+    val latitude: LiveData<Double> = _latitude
+
+    private val _longitude = MutableLiveData<Double>()
+    val longitude: LiveData<Double> = _longitude
+
     init {
         getBikeStations()
     }
@@ -44,5 +50,7 @@ class MainViewModel : ViewModel() {
         _total.value = station.tot
         _bikes.value = station.sbi
         _area.value = station.sarea
+        _latitude.value = station.lat
+        _longitude.value = station.lng
     }
 }
