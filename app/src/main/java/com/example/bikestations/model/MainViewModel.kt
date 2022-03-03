@@ -1,14 +1,13 @@
 package com.example.bikestations.model
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.bikestations.domain.BikeStation
 import com.example.bikestations.network.BikeApi
-import com.example.bikestations.network.BikeStation
 import kotlinx.coroutines.launch
+import java.io.IOException
 
-class MainViewModel : ViewModel() {
+class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val _stations = MutableLiveData<List<BikeStation>>()
     val stations: LiveData<List<BikeStation>> = _stations
@@ -32,5 +31,15 @@ class MainViewModel : ViewModel() {
 
     fun onBikeStationClicked(station: BikeStation) {
         _station.value = station
+    }
+
+    class Factory(private val app: Application) : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
+                @Suppress("UNCHECKED_CAST")
+                return MainViewModel(app) as T
+            }
+            throw IllegalArgumentException("Unable to construct viewmodel")
+        }
     }
 }

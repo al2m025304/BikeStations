@@ -23,7 +23,7 @@ private val retrofit = Retrofit.Builder()
 // A public interface that exposes the [getStations] method
 interface BikeApiService {
     @GET("youbike_immediate.json")
-    suspend fun getStations(): List<BikeStation>
+    suspend fun getStations(): List<YouBikeStation>
 }
 
 // A public Api object that exposes the lazy-initialized Retrofit service

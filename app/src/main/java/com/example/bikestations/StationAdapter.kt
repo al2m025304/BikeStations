@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bikestations.databinding.ListItemBinding
-import com.example.bikestations.network.BikeStation
+import com.example.bikestations.domain.BikeStation
 
 class StationListAdapter(private val clickListener: BikeStationListener) :
     ListAdapter<BikeStation, StationListAdapter.BikeStationsViewHolder>(DiffCallback) {

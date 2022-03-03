@@ -2,7 +2,7 @@ package com.example.bikestations
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bikestations.network.BikeStation
+import com.example.bikestations.domain.BikeStation
 
 // Updates the data shown in the [RecyclerView]
 @BindingAdapter("listData")
