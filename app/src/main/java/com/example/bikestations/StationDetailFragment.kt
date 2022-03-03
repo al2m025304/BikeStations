@@ -41,16 +41,16 @@ class StationDetailFragment : Fragment(), OnMapReadyCallback {
 
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
-            viewModel = sharedViewModel
+            station = sharedViewModel.station.value!!
         }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-        val latitude = sharedViewModel.latitude.value ?: -34.0
-        val longitude = sharedViewModel.longitude.value ?: 151.0
-        val station = LatLng(latitude, longitude)
-        googleMap.addMarker(MarkerOptions().position(station).title(sharedViewModel.name.value))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(station, 15f))
+        with(sharedViewModel.station.value!!) {
+            val station = LatLng(lat, lng)
+            googleMap.addMarker(MarkerOptions().position(station).title(sna))
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(station, 15f))
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

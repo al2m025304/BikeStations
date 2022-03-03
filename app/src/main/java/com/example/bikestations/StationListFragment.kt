@@ -17,10 +17,16 @@ class StationListFragment : Fragment() {
     private val sharedViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentStationListBinding.inflate(inflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
@@ -35,8 +41,6 @@ class StationListFragment : Fragment() {
         binding.stationList.adapter = adapter
 
         binding.stationList.setHasFixedSize(true)
-
-        return binding.root
     }
 
 }

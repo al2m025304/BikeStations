@@ -13,23 +13,8 @@ class MainViewModel : ViewModel() {
     private val _stations = MutableLiveData<List<BikeStation>>()
     val stations: LiveData<List<BikeStation>> = _stations
 
-    private val _name = MutableLiveData<String>()
-    val name: LiveData<String> = _name
-
-    private val _total = MutableLiveData<Int>()
-    val total: LiveData<Int> = _total
-
-    private val _bikes = MutableLiveData<Int>()
-    val bikes: LiveData<Int> = _bikes
-
-    private val _area = MutableLiveData<String>()
-    val area: LiveData<String> = _area
-
-    private val _latitude = MutableLiveData<Double>()
-    val latitude: LiveData<Double> = _latitude
-
-    private val _longitude = MutableLiveData<Double>()
-    val longitude: LiveData<Double> = _longitude
+    private val _station = MutableLiveData<BikeStation>()
+    val station: LiveData<BikeStation> = _station
 
     init {
         getBikeStations()
@@ -46,11 +31,6 @@ class MainViewModel : ViewModel() {
     }
 
     fun onBikeStationClicked(station: BikeStation) {
-        _name.value = station.sna
-        _total.value = station.tot
-        _bikes.value = station.sbi
-        _area.value = station.sarea
-        _latitude.value = station.lat
-        _longitude.value = station.lng
+        _station.value = station
     }
 }

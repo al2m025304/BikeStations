@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="com.example.bikestations.model.MainViewModel" />
+            name="station"
+            type="com.example.bikestations.network.BikeStation" />
     </data>
 
     <LinearLayout
@@ -39,8 +39,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="8dp"
-                    android:text="@{viewModel.name}"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@{station.sna}"
                     android:textColor="?attr/colorPrimary"
                     android:textSize="24sp"
                     tools:text="YouBike2.0_捷運科技大樓站" />
@@ -49,7 +50,6 @@
                     android:id="@+id/current_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:text="@string/current_number_of_bikes"
                     android:textAppearance="?attr/textAppearanceSubtitle1"
                     android:textColor="@color/material_on_background_emphasis_medium"
@@ -59,8 +59,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="8dp"
-                    android:text="@{viewModel.bikes.toString()}"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@{String.valueOf(station.sbi)}"
                     android:textColor="?attr/colorPrimary"
                     android:textSize="34sp"
                     tools:text="4" />
@@ -69,7 +70,6 @@
                     android:id="@+id/total_space"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:text="@string/total_parking_space"
                     android:textAppearance="?attr/textAppearanceSubtitle1"
                     android:textColor="@color/material_on_background_emphasis_medium"
@@ -79,8 +79,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="8dp"
-                    android:text="@{viewModel.total.toString()}"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@{String.valueOf(station.tot)}"
                     android:textColor="?attr/colorPrimary"
                     android:textSize="34sp"
                     tools:text="28" />
@@ -89,7 +90,6 @@
                     android:id="@+id/station_bikes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:text="@string/area"
                     android:textAppearance="?attr/textAppearanceSubtitle1"
                     android:textColor="@color/material_on_background_emphasis_medium"
@@ -99,8 +99,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="8dp"
-                    android:text="@{viewModel.area}"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@{station.sarea}"
                     android:textColor="?attr/colorPrimary"
                     android:textSize="24sp"
                     tools:text="大安區" />
