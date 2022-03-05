@@ -35,6 +35,7 @@ fun List<DatabaseStation>.asDomainModel(): List<BikeStation> {
             sna = it.sna,
             tot = it.tot,
             sbi = it.sbi,
+            sarea = it.sarea,
             lat = it.lat,
             lng = it.lng,
         )

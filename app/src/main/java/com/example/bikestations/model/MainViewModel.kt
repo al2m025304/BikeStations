@@ -1,45 +1,55 @@
 package com.example.bikestations.model
 
 import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import com.example.bikestations.database.getDatabase
 import com.example.bikestations.domain.BikeStation
-import com.example.bikestations.network.BikeApi
+import com.example.bikestations.repository.StationsRepository
 import kotlinx.coroutines.launch
 import java.io.IOException
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val _stations = MutableLiveData<List<BikeStation>>()
-    val stations: LiveData<List<BikeStation>> = _stations
+    private val stationsRepository = StationsRepository(getDatabase(application))
+    val stations = stationsRepository.stations
 
     private val _station = MutableLiveData<BikeStation>()
-    val station: LiveData<BikeStation> = _station
+    val station: LiveData<BikeStation>
+        get() = _station
+
+    private var _eventNetworkError = MutableLiveData(false)
+    val eventNetworkError: LiveData<Boolean>
+        get() = _eventNetworkError
+
+    private var _isNetworkErrorShown = MutableLiveData(false)
+    val isNetworkErrorShown: LiveData<Boolean>
+        get() = _isNetworkErrorShown
 
     init {
-        getBikeStations()
-    }
-
-    private fun getBikeStations() {
-        viewModelScope.launch {
-            try {
-                _stations.value = BikeApi.retrofitService.getStations()
-            } catch (e: Exception) {
-                _stations.value = listOf()
-            }
-        }
+        refreshDataFromRepository()
     }
 
     fun onBikeStationClicked(station: BikeStation) {
         _station.value = station
     }
 
-    class Factory(private val app: Application) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
-                @Suppress("UNCHECKED_CAST")
-                return MainViewModel(app) as T
+    private fun refreshDataFromRepository() {
+        viewModelScope.launch {
+            try {
+                stationsRepository.refreshStations()
+                _eventNetworkError.value = false
+                _isNetworkErrorShown.value = false
+            } catch (networkError: IOException) {
+                if (stations.value.isNullOrEmpty())
+                    _eventNetworkError.value = true
             }
-            throw IllegalArgumentException("Unable to construct viewmodel")
         }
+    }
+
+    fun onNetworkErrorShown() {
+        _isNetworkErrorShown.value = true
     }
 }

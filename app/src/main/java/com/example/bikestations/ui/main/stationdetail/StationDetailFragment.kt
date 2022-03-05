@@ -1,4 +1,4 @@
-package com.example.bikestations
+package com.example.bikestations.ui.main.stationdetail
 
 import android.os.Bundle
 import android.view.LayoutInflater

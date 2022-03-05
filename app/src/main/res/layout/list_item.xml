@@ -6,11 +6,11 @@
 
         <variable
             name="station"
-            type="com.example.bikestations.network.BikeStation" />
+            type="com.example.bikestations.domain.BikeStation" />
 
         <variable
             name="clickListener"
-            type="com.example.bikestations.BikeStationListener" />
+            type="com.example.bikestations.ui.main.stationlist.BikeStationListener" />
     </data>
 
     <LinearLayout

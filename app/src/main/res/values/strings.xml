@@ -8,4 +8,5 @@
     <string name="update_time">Update time</string>
     <string name="current_number_of_bikes">Current number of bikes</string>
     <string name="total_parking_space">Total parking space</string>
+    <string name="network_error">Network Error</string>
 </resources>

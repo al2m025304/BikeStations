@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".StationDetailFragment">
+    tools:context=".ui.main.stationdetail.StationDetailFragment">
 
     <data>
 
         <variable
             name="station"
-            type="com.example.bikestations.network.BikeStation" />
+            type="com.example.bikestations.domain.BikeStation" />
     </data>
 
     <LinearLayout

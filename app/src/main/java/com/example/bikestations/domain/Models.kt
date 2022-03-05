@@ -5,6 +5,7 @@ data class BikeStation(
     val sna: String,
     val tot: Int,
     val sbi: Int,
+    val sarea: String,
     val lat: Double,
     val lng: Double,
 )

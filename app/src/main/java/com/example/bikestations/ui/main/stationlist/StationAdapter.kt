@@ -1,4 +1,4 @@
-package com.example.bikestations
+package com.example.bikestations.ui.main.stationlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

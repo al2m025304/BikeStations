@@ -7,15 +7,16 @@
 
     <fragment
         android:id="@+id/stationListFragment"
-        android:name="com.example.bikestations.StationListFragment"
-        android:label="@string/app_name">
+        android:name="com.example.bikestations.ui.main.stationlist.StationListFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_station_list">
         <action
             android:id="@+id/action_stationListFragment_to_stationDetailFragment"
             app:destination="@id/stationDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/stationDetailFragment"
-        android:name="com.example.bikestations.StationDetailFragment"
+        android:name="com.example.bikestations.ui.main.stationdetail.StationDetailFragment"
         android:label="@string/station_detail"
         tools:layout="@layout/fragment_station_detail" />
 </navigation>
